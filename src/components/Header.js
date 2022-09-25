@@ -43,6 +43,7 @@ const Nav = styled.div`
   display: flex;
   align-items: center;
   padding: 0 36px;
+  overflow-x: hidden;
 `;
 
 const Logo = styled.img`
@@ -66,7 +67,29 @@ const NavMenu = styled.div`
     span {
       font-size: 13px;
       letter-spacing: 1.42px;
+      position: relative;
+      &:after {
+        // this is like div
+        content: "";
+        height: 2px;
+        background: white;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -6px;
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: left center;
+      }
+     
     }
+   &:hover {
+   span:after{
+    transform: scaleX(1);
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+   }
+   }
   }
 `;
 
@@ -74,4 +97,5 @@ const UserImg = styled.img`
   width: 100px;
   height: 60px;
   cursor: pointer;
+  border-radius: 50%;
 `;
